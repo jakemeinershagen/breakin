@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dc7mixrraojwc"]
+
+[ext_resource type="Script" path="res://Scripts/ball.gd" id="1_2qj4l"]
+[ext_resource type="Texture2D" uid="uid://2geq4hwnv0sq" path="res://Assets/ball.png" id="1_ir4di"]
+[ext_resource type="AudioStream" uid="uid://cefjck7lxyxnq" path="res://Assets/sfx_sounds_impact4.wav" id="3_ls6cs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v6em0"]
+radius = 8.0
+
+[node name="Ball" type="CharacterBody2D"]
+script = ExtResource("1_2qj4l")
+
+[node name="Ball" type="Sprite2D" parent="."]
+texture = ExtResource("1_ir4di")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_v6em0")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="DebugVector" type="Line2D" parent="."]
+visible = false
+points = PackedVector2Array(0, 0, 20, 0)
+width = 2.0
+default_color = Color(0, 0.988235, 0.439216, 1)
+
+[node name="BounceSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ls6cs")
+volume_db = -10.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

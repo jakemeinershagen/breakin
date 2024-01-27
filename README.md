@@ -1,6 +1,9 @@
 # breakin
 A clone of Breakout.
 
+## ToDo
+- Fix cos, sin on ball to look normal? Or at least figure it out.
+
 ## Goals
 - [ ] Make Game
   - requirements: https://20_games_challenge.gitlab.io/games/breakout/

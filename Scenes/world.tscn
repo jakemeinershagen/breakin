@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=3 uid="uid://bh1e7q6rqhsen"]
+
+[ext_resource type="PackedScene" uid="uid://cyusujawjdm6b" path="res://Scenes/paddle.tscn" id="1_jgmg6"]
+[ext_resource type="PackedScene" uid="uid://dc7mixrraojwc" path="res://Scenes/ball.tscn" id="2_mihg6"]
+[ext_resource type="PackedScene" uid="uid://ctre0srcv8rx" path="res://Scenes/wall.tscn" id="5_g71vk"]
+
+[node name="World" type="Node2D"]
+
+[node name="Paddle" parent="." instance=ExtResource("1_jgmg6")]
+position = Vector2(300, 541)
+collision_layer = 2
+collision_mask = 4
+
+[node name="Ball" parent="." instance=ExtResource("2_mihg6")]
+position = Vector2(300, 300)
+scale = Vector2(0.5, 0.5)
+collision_mask = 14
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Score" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 567.0
+offset_right = 94.0
+offset_bottom = 590.0
+text = "Score: 00"
+
+[node name="Lives" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 515.0
+offset_top = 567.0
+offset_right = 572.0
+offset_bottom = 590.0
+text = "Lives: 3"
+
+[node name="Wall" parent="." instance=ExtResource("5_g71vk")]
+position = Vector2(0, 300)
+rotation = 1.5708
+collision_layer = 4
+collision_mask = 0
+
+[node name="Wall2" parent="." instance=ExtResource("5_g71vk")]
+position = Vector2(600, 300)
+rotation = 1.5708
+collision_layer = 4
+collision_mask = 0
+
+[node name="Wall3" parent="." instance=ExtResource("5_g71vk")]
+position = Vector2(300, 0)
+collision_layer = 4
+collision_mask = 0

@@ -15,6 +15,10 @@ run/main_scene="res://Scenes/world.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameState="*res://Scripts/game_state.gd"
+
 [display]
 
 window/size/viewport_width=600
@@ -40,7 +44,7 @@ paddle_right={
 2d_physics/layer_1="ball"
 2d_physics/layer_2="paddle"
 2d_physics/layer_3="walls"
-2d_physics/layer_4="blocks"
+2d_physics/layer_4="bricks"
 
 [rendering]
 

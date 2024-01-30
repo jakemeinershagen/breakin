@@ -3,6 +3,9 @@ extends CharacterBody2D
 var waiting_to_start = false
 const SPEED = 300.0
 
+signal score_point
+
+
 func _ready():
 	_reset_ball()
 
@@ -12,7 +15,7 @@ func _physics_process(delta):
 	if !waiting_to_start:
 		collision = move_and_collide(velocity * delta)
 	if collision:
-		if !(collision.get_collider() is Wall):
+		if collision.get_collider() is Paddle:
 			# relative position on paddle from 0 to 1, 0 is on the left
 			var rel_pos_norm = ((collision.get_position().x - collision.get_collider().position.x) / \
 									collision.get_collider_shape().get_shape().get_rect().size.x) + 0.5
@@ -23,6 +26,11 @@ func _physics_process(delta):
 			velocity = direction * SPEED
 		elif collision.get_collider() is Wall:
 			velocity = velocity.bounce(collision.get_normal())
+		elif collision.get_collider() is Brick:
+			velocity = velocity.bounce(collision.get_normal())
+			collision.get_collider().free()
+			GameState.add_point()
+			emit_signal("score_point")
 		$BounceSound.play()
 
 
@@ -35,3 +43,7 @@ func _reset_ball():
 
 func _on_timer_timeout():
 	waiting_to_start = false
+
+
+func _on_bounds_body_entered(body):
+	_reset_ball()

@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://3bhl4qbid0rm"]
+
+[ext_resource type="PackedScene" uid="uid://bn1kdymcovr0x" path="res://Scenes/brick_row.tscn" id="1_nmbnh"]
+
+[node name="BrickSet" type="Node2D"]
+
+[node name="Row1" parent="." instance=ExtResource("1_nmbnh")]
+position = Vector2(0, -42)
+row_color = Color(255, 0, 0, 1)
+
+[node name="Row2" parent="." instance=ExtResource("1_nmbnh")]
+position = Vector2(0, -30)
+row_color = Color(1, 0.633333, 0, 1)
+
+[node name="Row3" parent="." instance=ExtResource("1_nmbnh")]
+position = Vector2(0, -18)
+row_color = Color(0.933333, 1, 0, 1)
+
+[node name="Row4" parent="." instance=ExtResource("1_nmbnh")]
+position = Vector2(0, -6)
+row_color = Color(0.501961, 1, 0, 1)
+
+[node name="Row5" parent="." instance=ExtResource("1_nmbnh")]
+position = Vector2(0, 6)
+row_color = Color(0, 1, 0.74902, 1)
+
+[node name="Row6" parent="." instance=ExtResource("1_nmbnh")]
+position = Vector2(0, 18)
+row_color = Color(0, 0.415686, 1, 1)
+
+[node name="Row7" parent="." instance=ExtResource("1_nmbnh")]
+position = Vector2(0, 30)
+row_color = Color(0.0313726, 0, 1, 1)
+
+[node name="Row8" parent="." instance=ExtResource("1_nmbnh")]
+position = Vector2(0, 42)
+row_color = Color(0.784314, 0, 1, 1)

@@ -28,7 +28,7 @@ func _physics_process(delta):
 			velocity = velocity.bounce(collision.get_normal())
 		elif collision.get_collider() is Brick:
 			velocity = velocity.bounce(collision.get_normal())
-			collision.get_collider().free()
+			collision.get_collider().queue_free()
 			GameState.add_point()
 			emit_signal("score_point")
 		$BounceSound.play()
@@ -47,3 +47,8 @@ func _on_timer_timeout():
 
 func _on_bounds_body_entered(body):
 	_reset_ball()
+
+
+func _on_score_point():
+	if GameState.score % 128 == 0:
+		_reset_ball()

@@ -26,6 +26,6 @@ default_color = Color(0, 0.988235, 0.439216, 1)
 
 [node name="BounceSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_ls6cs")
-volume_db = -10.0
+volume_db = -14.685
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

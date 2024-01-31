@@ -1,16 +1,17 @@
 [gd_scene load_steps=8 format=3 uid="uid://bh1e7q6rqhsen"]
 
+[ext_resource type="Script" path="res://Scripts/world.gd" id="1_7fcpr"]
 [ext_resource type="PackedScene" uid="uid://cyusujawjdm6b" path="res://Scenes/paddle.tscn" id="1_jgmg6"]
 [ext_resource type="PackedScene" uid="uid://dc7mixrraojwc" path="res://Scenes/ball.tscn" id="2_mihg6"]
 [ext_resource type="Script" path="res://Scripts/ui.gd" id="3_gcnwx"]
 [ext_resource type="PackedScene" uid="uid://ctre0srcv8rx" path="res://Scenes/wall.tscn" id="5_g71vk"]
-[ext_resource type="PackedScene" uid="uid://3bhl4qbid0rm" path="res://Scenes/brick_set.tscn" id="5_meb8y"]
 [ext_resource type="Script" path="res://Scripts/bounds.gd" id="6_6gll1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jr2dn"]
 size = Vector2(700, 50)
 
 [node name="World" type="Node2D"]
+script = ExtResource("1_7fcpr")
 
 [node name="Paddle" parent="." instance=ExtResource("1_jgmg6")]
 position = Vector2(300, 541)
@@ -73,16 +74,15 @@ position = Vector2(300, 0)
 collision_layer = 4
 collision_mask = 0
 
-[node name="BrickSet" parent="." instance=ExtResource("5_meb8y")]
-position = Vector2(300, 125)
-
 [node name="Bounds" type="Area2D" parent="."]
-position = Vector2(300, 625)
+position = Vector2(302, 625)
 script = ExtResource("6_6gll1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bounds"]
 shape = SubResource("RectangleShape2D_jr2dn")
 
+[connection signal="score_point" from="Ball" to="." method="_on_score_point"]
+[connection signal="score_point" from="Ball" to="Ball" method="_on_score_point"]
 [connection signal="score_point" from="Ball" to="UI" method="_on_score_point"]
 [connection signal="body_entered" from="Bounds" to="Ball" method="_on_bounds_body_entered"]
 [connection signal="body_entered" from="Bounds" to="UI" method="_on_remove_life"]

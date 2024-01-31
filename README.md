@@ -4,7 +4,6 @@ A clone of Breakout.
 ## ToDo
 - Fix cos, sin on ball to look normal? Or at least figure it out.
 - lose state
-- reset blocks when they run out
 - speed up on ceiling
 
 ## Goals

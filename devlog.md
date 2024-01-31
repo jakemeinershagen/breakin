@@ -14,3 +14,10 @@ updated after the label was updated.
 Another solution would be to do the update in bounds and then just update the label in the UI's _process
 function or something, but I felt the way I'm currently doing makes more sense since we don't need to update
 the label every frame in this case.
+
+
+## 1/31  
+Made bricks reset after they run out. The way I'm doing it is just tracking the score.
+I don't love this methods, but it works well enough.
+
+Also, made the ball reset when the bricks run out.

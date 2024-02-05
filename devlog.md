@@ -21,3 +21,9 @@ Made bricks reset after they run out. The way I'm doing it is just tracking the 
 I don't love this methods, but it works well enough.
 
 Also, made the ball reset when the bricks run out.
+
+
+## 2/5
+Made the ball speed up when it hits the ceiling.
+For some reason, the get_normal function on the collision does not always return (0,1) in that instance.
+So, I just compare to if the y component is > than .99.

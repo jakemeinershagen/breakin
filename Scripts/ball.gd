@@ -5,7 +5,7 @@ var ceiling_bounced = false
 var direction = Vector2.DOWN
 
 const SPEED = 300.0
-const CEILING_BOUNCE_SPEED = 600.0
+const CEILING_BOUNCE_SPEED = 550.0
 
 signal score_point
 
@@ -66,5 +66,5 @@ func _on_bounds_body_entered(body):
 
 
 func _on_score_point():
-	if GameState.score % 128 == 0:
+	if GameState.check_new_brick_set():
 		_reset_ball()

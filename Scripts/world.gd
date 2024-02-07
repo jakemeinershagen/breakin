@@ -2,7 +2,6 @@ extends Node2D
 
 var brick_set_scene = preload("res://Scenes/brick_set.tscn")
 var brick_set_inst
-var brick_set_number = 128
 @export var brick_set_debug = false
 
 func _ready():
@@ -10,7 +9,7 @@ func _ready():
 
 
 func _on_score_point():
-	if GameState.score % brick_set_number == 0:
+	if GameState.check_new_brick_set():
 		brick_set_inst.free()
 		_add_new_brick_set()
 
@@ -31,6 +30,5 @@ func _check_brick_set_debug():
 		brick_set_inst.find_child("Row4").free()
 		brick_set_inst.find_child("Row3").free()
 		brick_set_inst.find_child("Row2").free()
-		brick_set_inst.find_child("Row1").free()
 		
-		brick_set_number = 16
+		GameState.brick_set_number = 16

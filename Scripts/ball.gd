@@ -16,7 +16,7 @@ func _ready():
 
 func _physics_process(delta):
 	var collision: KinematicCollision2D = null
-	if !waiting_to_start:
+	if !waiting_to_start and GameState.game_running:
 		collision = move_and_collide(velocity * delta)
 	if collision:
 		if collision.get_collider() is Paddle:
